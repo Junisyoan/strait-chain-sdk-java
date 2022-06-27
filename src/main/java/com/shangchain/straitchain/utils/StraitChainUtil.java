@@ -3,14 +3,11 @@ package com.shangchain.straitchain.utils;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
-import com.alibaba.fastjson.JSONObject;
-import com.shangchain.straitchain.dto.StraitChainResponse;
-import com.shangchain.straitchain.params.StraitChainParam;
-import okhttp3.*;
 
 import java.math.BigInteger;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * 2022/4/26
@@ -20,18 +17,17 @@ import java.util.concurrent.TimeUnit;
  */
 public class StraitChainUtil {
 
+    private static final String HEX_PREFIX = "0x";
+
     /**
      * 对Map中的key进行排序
-     * @param map
+     * @param map 参数
      * @return a=1&b=2&c=3
      */
     public static String sortMapToString (Map<String,?> map){
         StringBuilder buffer = new StringBuilder();
-
-        Collection<String> set = map.keySet();
-        List<String> list = new ArrayList<>(set);
-        Collections.sort(list);
-        for (String key : list) {
+        Map<String,?> sortMap = new TreeMap<>(map);
+        for (String key : sortMap.keySet()) {
             buffer.append(key).append("=").append(map.get(key)).append("&");
         }
         String s = buffer.toString();
@@ -59,7 +55,7 @@ public class StraitChainUtil {
      * 数组需要转成集合形式List
      */
     public static String encryptDataByMd5(List<Object> params, String appKey){
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for (Object param : params) {
             if (param != null) {
                 buffer.append(param).append("&");
@@ -82,8 +78,8 @@ public class StraitChainUtil {
     }
 
     public static BigInteger toBigInteger(String hexValue){
-        if (StrUtil.startWith(hexValue, "0x")) {
-            hexValue = hexValue.replace("0x", "");
+        if (StrUtil.startWith(hexValue, HEX_PREFIX)) {
+            hexValue = hexValue.replace(HEX_PREFIX, "");
         }
         if (!Validator.isHex(hexValue)) {
             throw new IllegalArgumentException("参数需要为16进制");
