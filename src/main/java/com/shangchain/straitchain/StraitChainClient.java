@@ -1,7 +1,6 @@
 package com.shangchain.straitchain;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.shangchain.straitchain.constants.StraitChainConstant;
 import com.shangchain.straitchain.dto.BlockInfoDto;
@@ -18,7 +17,6 @@ import com.shangchain.straitchain.utils.StraitChainUtil;
 import lombok.Data;
 import okhttp3.*;
 import org.web3j.abi.FunctionEncoder;
-import org.web3j.abi.FunctionReturnDecoder;
 import org.web3j.abi.datatypes.Address;
 import org.web3j.abi.datatypes.Function;
 import org.web3j.abi.datatypes.Utf8String;
@@ -32,7 +30,10 @@ import org.web3j.utils.Numeric;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -428,7 +429,7 @@ public class StraitChainClient implements IScsChain, INftContract, IDepositCerti
 
     @Override
     public void dcEvidence() throws StraitChainException {
-
+        // 这里是方法签名，在com.shangchain.straitchain.StraitChainClient.dcEvidenceSignHex中已经写好
     }
 
     @Override
