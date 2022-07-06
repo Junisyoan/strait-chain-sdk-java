@@ -54,6 +54,7 @@ nftMintParam.setIssuer("发行方");
 nftMintParam.setOperator("运营方");
 nftMintParam.setRemark("这是一个备注");
 nftMintParam.setCount(nftMintCount);
+nftMintParam.setOwner(from);
 nftMintParam.setContractAddress(contractAddress);
 // 业务需求，全平台唯一。如：公司缩写+uuid
 nftMintParam.setCollectSn("strait_chain_test_1");
