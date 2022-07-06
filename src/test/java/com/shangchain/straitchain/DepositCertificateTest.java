@@ -1,20 +1,6 @@
 package com.shangchain.straitchain;
 
-import com.shangchain.straitchain.constants.StraitChainConstant;
-import com.shangchain.straitchain.params.StraitChainContractDcEvidenceSignHexParam;
 import com.shangchain.straitchain.params.StraitChainExistingEvidenceParam;
-import org.web3j.abi.FunctionEncoder;
-import org.web3j.abi.datatypes.Function;
-import org.web3j.abi.datatypes.Utf8String;
-import org.web3j.crypto.Credentials;
-import org.web3j.crypto.RawTransaction;
-import org.web3j.crypto.TransactionEncoder;
-import org.web3j.utils.Numeric;
-
-import java.io.File;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * 2022/4/26
@@ -24,8 +10,7 @@ import java.util.Collections;
  */
 public class DepositCertificateTest {
     public static void main(String[] args) {
-        String url="http://nps.shang-chain.com:30023/strait-chain-client-test";
-//        String url="http://localhost:10825/webclient";
+        String url="https://backend.straitchain.com/webclient";
         String from = "通行证地址";
         String privateKey="通行证私钥";
         String appId="appId";
@@ -36,7 +21,7 @@ public class DepositCertificateTest {
         client.setUrl(url);
 
 //        // 上传文件到ipfs
-//        String cid = client.ipfsUpload(from, new File("C:/Users/shangchain/Desktop/1.txt"));
+//        String cid = client.ipfsUpload(from, new File("C:/Users/shangchain/Desktop/1.avi"));
 //        // QmVMtZqABQeiPSrS2vA9zaJnM689YqbArWz9aijCeZ7NFF
 //        System.out.println(cid);
         String cid = "QmVMtZqABQeiPSrS2vA9zaJnM689YqbArWz9aijCeZ7NFF";
