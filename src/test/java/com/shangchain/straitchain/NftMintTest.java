@@ -1,11 +1,6 @@
 package com.shangchain.straitchain;
 
-import com.shangchain.straitchain.dto.NftMintDto;
 import com.shangchain.straitchain.params.StraitChainSendRawTxParam;
-import com.shangchain.straitchain.params.StraitNftMintParam;
-
-import java.util.List;
-import java.util.Locale;
 
 /**
  * 2022/4/26
@@ -41,6 +36,7 @@ public class NftMintTest {
 //        nftMintParam.setOperator("运营方");
 //        nftMintParam.setRemark("这是一个备注");
 //        nftMintParam.setCount(nftMintCount);
+//        nftMintParam.setOwner(from);
 //        nftMintParam.setContractAddress(contractAddress);
 //        // 业务需求，全平台唯一。如：公司缩写+uuid
 //        nftMintParam.setCollectSn("strait_chain_test_1");
